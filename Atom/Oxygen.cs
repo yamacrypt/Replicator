@@ -10,7 +10,8 @@ public class Oxygen : Atom
 
     protected override int bondOrderBaseValue => 2;
 
-    protected override int suctionPowerBaseValue => -2;
+    protected override int suctionPowerBaseValue => 4;
+    protected override int injectionPowerBaseValue => -2;
 
     public override int reactivity(IReactiveAtom target)
     {

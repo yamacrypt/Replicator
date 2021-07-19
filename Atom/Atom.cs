@@ -1,3 +1,4 @@
+using System.Linq;
 using System;
 using System.Collections.Generic;
 using UniRx;
@@ -24,11 +25,14 @@ public abstract class Atom : IAtom
     public abstract int fieldPower{get;}
     public  int bondOrder=>_bondOrder;
     public  int suctionPower=>_suctionPower;
+    public  int injectionPower=>_injectionPower;
     protected abstract int bondOrderBaseValue{get;}
     protected abstract int suctionPowerBaseValue{get;}
+    protected abstract int injectionPowerBaseValue{get;}
 
     int _bondOrder;
     int _suctionPower;
+    int _injectionPower;
     protected Atom(Transform transform,Vector2Int blockSize,Vector2Int startPosition)
     {
         this.transform=transform;
@@ -36,26 +40,32 @@ public abstract class Atom : IAtom
         this.blockSize=blockSize;
         _bondOrder=bondOrderBaseValue;
         _suctionPower=suctionPowerBaseValue;
+        _injectionPower=injectionPowerBaseValue;
         _linkedAtoms=new HashSet<IReactiveAtom>();
     }
 
     public abstract int reactivity(IReactiveAtom target);
-
-    public bool Bond(IReactiveAtom atom, int number = 1)
+    public const int Suction=-1;
+    public const int Injection=1;
+    public bool Bond(IReactiveAtom atom,int mode, int number = 1)
     {
-        if(_linkedAtoms.Contains(atom))
+        _bondOrder-=1;
+        if(mode==Injection){
+            //atom.injectionPower
+        }
+        if(_linkedAtoms.Contains(atom)||mode==Suction)
             return false;
         _linkedAtoms.Add(atom);
-        _bondOrder-=1;
-        atom.Bond(this,number);
+        //_bondOrder-=1;
+        atom.Bond(this,mode*-1,number);
         return true;
 
     }
     public void CutOff(IReactiveAtom atom){
+        _bondOrder+=1;
         if(!_linkedAtoms.Contains(atom))
             return;
         _linkedAtoms.Remove(atom);
-        _bondOrder=1;
         atom.CutOff(this);
     }
 
@@ -78,7 +88,7 @@ public interface IMovingAtom:IBaseAtom{
     IReadOnlyCollection<IMovingAtom> linkedAtoms{get;}
 }
 public interface IReactiveAtom:IMovingAtom{
-    bool Bond(IReactiveAtom atom,int number=1);
+    bool Bond(IReactiveAtom atom,int mode,int number=1);
     void CutOff(IReactiveAtom atom);
     void Mutation();
     int reactivity(IReactiveAtom atom);
@@ -93,5 +103,6 @@ public interface IBaseAtom{
     int fieldPower{get;}
     int bondOrder{get;}
     int suctionPower{get;}
+    int injectionPower{get;}
      IObservable<Vector2> Observable{get;}
 }

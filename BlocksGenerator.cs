@@ -14,6 +14,7 @@ public class BlocksGenerator: MonoBehaviour
     [SerializeField]Canvas parent;
     [SerializeField]GameObject oxygen;
     [SerializeField]GameObject hydrogen;
+    [SerializeField]GameObject carbon;
     [SerializeField]int xNumber;
     [SerializeField]int yNumber;
     void Start()
@@ -25,10 +26,13 @@ public class BlocksGenerator: MonoBehaviour
     void Generate(){
         System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
         sw.Start();
-        Dictionary<Type,GameObject> atomDictionary=new Dictionary<Type, GameObject>(){
-        {typeof(Oxygen),oxygen},
-        {typeof(Hydrogen),hydrogen},
+
+        Dictionary<int,GameObject> atomObjDictionary=new Dictionary<int, GameObject>(){
+        {0,oxygen},
+        {1,hydrogen},
+        {2,carbon},
         };
+        int variables=atomObjDictionary.Count;
         Vector3 basePos=Vector3.zero;
         Vector2Int maxRange=new Vector2Int(xNumber/2,yNumber/2);
         Vector2Int minRange=new Vector2Int(-xNumber/2,-yNumber/2);
@@ -45,9 +49,8 @@ public class BlocksGenerator: MonoBehaviour
                 Vector3 addPos=new Vector3((i+1/2f)*blockSize.x,(j+1/2f)*blockSize.y,0);
                 //var blockObj=GameObject.Instantiate(block,basePos+addPos,Quaternion.identity);
                 //blockObj.transform.parent=parent.transform;
-                int mode=random.Next()%2;
-                Type atomType=getAtomType(mode);
-                var atom=atomDictionary[atomType];//getAtomPrefab(atomType);
+                int mode=random.Next()%variables;
+                var atom=atomObjDictionary[mode];//getAtomPrefab(atomType);
                 var atomObj=GameObject.Instantiate(atom,basePos+addPos,Quaternion.identity);
                 atomObj.transform.parent=parent.transform;
                 OverrideSorting(atomObj);
@@ -57,6 +60,7 @@ public class BlocksGenerator: MonoBehaviour
                 switch(mode){
                     case 0:atomInstance=new Oxygen(atomObj.transform,blockSize,startPosition);break;
                     case 1:atomInstance=new Hydrogen(atomObj.transform,blockSize,startPosition);break;
+                    case 2:atomInstance=new Carbon(atomObj.transform,blockSize,startPosition);break;
                     default:throw new Exception();
                 }
                 atomList.Add(atomInstance);
@@ -75,6 +79,7 @@ public class BlocksGenerator: MonoBehaviour
         switch(mode){
                     case 0:return typeof(Oxygen);
                     case 1:return typeof(Hydrogen);
+                    case 2:return typeof(Carbon);
                     default:break;
                 }
         return null;

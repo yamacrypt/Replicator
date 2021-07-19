@@ -31,16 +31,45 @@ public class ReactionManager{
             Mutation(key);
         }
     }
+    double Tanh(float x){
+        float a=0.1f;
+        float abs=Math.Abs(x);
+        int code=x>=0?1:-1;
+        var res=Math.Tanh(code*a*Math.Sqrt(abs));
+        if(Math.Abs(res)>1f){
+            Debug.Log("error");
+            Debug.Log($"x {code*a*Math.Sqrt(abs)}");
+            Debug.Log($"res {res}");
+        }
+        return res;
+    }
     public void Bond(Vector2Int key){
+            Random random=new Random();
             foreach (var adjacent in getAdjacentVector(key))
             {
                 if(atomPosDictionary.Keys.Contains(adjacent)){
                     var start=atomPosDictionary[key];
                     var end=atomPosDictionary[adjacent];
-                    Debug.Log($"Bond {key} {adjacent}");
+                    //Debug.Log($"Bond {key} {adjacent}");
                     bool done=false;
-                    if(start.bondOrder>=1&&end.bondOrder>=1)
-                        done=start.Bond(end);
+                    
+                    if(start.bondOrder>=1&&end.bondOrder>=1){
+                        int basePercentage=50;
+                        IReactiveAtom sender,receiver;
+                        //if(start.suctionPower*end.injectionPower>start.injectionPower*end.suctionPower){
+                        //}
+                        //else{
+                        sender=start;receiver=end;//ループにより両方向でTryBond操作が行われるからこれで十分。
+                        //}
+                        
+                        int reactionPower=calcReationPower(sender.injectionPower,receiver.suctionPower);
+                        int resPercentage=(int)(basePercentage*(1f+Tanh(reactionPower)));
+                        int threshold=random.Next()%100;
+                        if(resPercentage>threshold){
+                            //Debug.Log($"Bond {resPercentage}%");
+                            done=start.Bond(end,Atom.Injection);
+                        }
+                    }
                     if(done){
                     UniRxPool.StreamPool.Instance.FindObserver<LineRenderingAction>("LineRenderingAction").OnNext(
                         new LineRenderingAction(
@@ -51,6 +80,13 @@ public class ReactionManager{
                 }                
         }
     }
+    int calcReationPower(int injectionPower,int suctionPower){
+        int reactionPower=injectionPower*suctionPower;
+        if(injectionPower<0&&suctionPower<0){
+            reactionPower=-reactionPower*reactionPower;
+        }
+        return reactionPower;
+    }
     public void CutOff(Vector2Int key){
             foreach (var linkedAtom in atomPosDictionary[key].linkedAtoms.ToArray())
             {
@@ -58,6 +94,7 @@ public class ReactionManager{
                 var end=linkedAtom;
                 if(!isAdjacent(start.position,end.position)){
                     //Debug.Log($"CutOff {key} {end.position}");
+
                     start.CutOff(end);
                     UniRxPool.StreamPool.Instance.FindObserver<LineRenderingAction>("LineRenderingAction").OnNext(
                         new LineRenderingAction(
@@ -72,11 +109,16 @@ public class ReactionManager{
         Random random=new Random();
         foreach(var linkedAtom in atomPosDictionary[key].linkedAtoms.ToArray())
         {
-            int val=random.Next()%1000;
-            bool occur=val<2;
-            if(occur){
-                var start=atomPosDictionary[key];
-                var end=linkedAtom;
+            var start=atomPosDictionary[key];
+            var end=linkedAtom;
+            var sender=start;
+            var receiver=end;
+            int basePercentage=50;
+            int reactionPower=calcReationPower(sender.injectionPower,receiver.suctionPower);
+            int resPercentage=(int)(basePercentage*(1f-Tanh(reactionPower)));
+            int threshold=random.Next()%1000;
+            if(resPercentage>threshold){
+                
                 start.CutOff(end);
                     UniRxPool.StreamPool.Instance.FindObserver<LineRenderingAction>("LineRenderingAction").OnNext(
                         new LineRenderingAction(

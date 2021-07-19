@@ -47,6 +47,7 @@ public class LineRederingManager : MonoBehaviour
         );
     }
     int Hash(int i ,int j){
+        //return HashFunction.CoodinateHash(new Vector2(i,j));
         int mod1=47713;
         return (i%mod1+1)*(j%mod1+1);
     }

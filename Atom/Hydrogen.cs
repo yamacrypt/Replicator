@@ -11,6 +11,7 @@ public class Hydrogen : Atom
     protected override int bondOrderBaseValue => 1;
 
     protected override int suctionPowerBaseValue => 1;
+    protected override int injectionPowerBaseValue => 3;
 
     public override int reactivity(IReactiveAtom target)
     {
