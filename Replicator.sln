@@ -1,0 +1,85 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniRx", "UniRx.csproj", "{43838b60-f335-38db-beb2-3415873e254a}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaveGame", "SaveGame.csproj", "{2fcb5c31-da5f-456f-549c-c9339277a2a3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniTask", "UniTask.csproj", "{051b4c74-7f6b-df5e-34a0-b4049e2ebfb1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniTask.Linq", "UniTask.Linq.csproj", "{c95007b0-9c6c-f983-5a2e-6ede4babd6a8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RandomEnchant", "RandomEnchant.csproj", "{d92c4dd7-d018-156c-0535-c2704de117a8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniRx.Examples", "UniRx.Examples.csproj", "{00c1c206-7b2a-01c9-f5c5-ce1b86b94c65}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MackySoft.Modiferty", "MackySoft.Modiferty.csproj", "{89efaa63-8d8c-d9df-4196-de218818c163}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{e72b1445-70b9-7c4d-9d80-74a1a2c0479c}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MackySoft.Modiferty.UniRx", "MackySoft.Modiferty.UniRx.csproj", "{b48ce9e9-e967-54be-36da-ba5ea3bb8393}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniTask.TextMeshPro", "UniTask.TextMeshPro.csproj", "{0d524ffe-b22d-12f9-7ad9-d44800bb817e}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniTask.DOTween", "UniTask.DOTween.csproj", "{ef469bd6-78dc-eeac-295f-919b64315e67}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MackySoft.Modiferty.Example", "MackySoft.Modiferty.Example.csproj", "{8c3455a6-060e-1d6d-00d4-2f38dc0cf4d7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniTask.Addressables", "UniTask.Addressables.csproj", "{840ae3d0-4b44-ce2a-fa8a-ab1e8aa68444}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MackySoft.Modiferty.UniRx.Editor.Tests", "MackySoft.Modiferty.UniRx.Editor.Tests.csproj", "{699a3049-b01a-3da6-b55b-2d7b998e1dd0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniTask.Editor", "UniTask.Editor.csproj", "{1219557e-4cba-bd97-7a18-ef3a61bf7706}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MackySoft.Modiferty.Editor.Tests", "MackySoft.Modiferty.Editor.Tests.csproj", "{d59ca97a-e61e-832e-5919-bc76dd8d5143}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{9f1e5dcd-c4e9-8dea-f2f1-ff5585f56e12}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MackySoft.Modiferty.Editor", "MackySoft.Modiferty.Editor.csproj", "{769abc42-0ac5-8982-9e71-1f710b67d575}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{43838b60-f335-38db-beb2-3415873e254a}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43838b60-f335-38db-beb2-3415873e254a}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2fcb5c31-da5f-456f-549c-c9339277a2a3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2fcb5c31-da5f-456f-549c-c9339277a2a3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{051b4c74-7f6b-df5e-34a0-b4049e2ebfb1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{051b4c74-7f6b-df5e-34a0-b4049e2ebfb1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{c95007b0-9c6c-f983-5a2e-6ede4babd6a8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{c95007b0-9c6c-f983-5a2e-6ede4babd6a8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{d92c4dd7-d018-156c-0535-c2704de117a8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{d92c4dd7-d018-156c-0535-c2704de117a8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00c1c206-7b2a-01c9-f5c5-ce1b86b94c65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00c1c206-7b2a-01c9-f5c5-ce1b86b94c65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89efaa63-8d8c-d9df-4196-de218818c163}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89efaa63-8d8c-d9df-4196-de218818c163}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{e72b1445-70b9-7c4d-9d80-74a1a2c0479c}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{e72b1445-70b9-7c4d-9d80-74a1a2c0479c}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{b48ce9e9-e967-54be-36da-ba5ea3bb8393}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{b48ce9e9-e967-54be-36da-ba5ea3bb8393}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0d524ffe-b22d-12f9-7ad9-d44800bb817e}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0d524ffe-b22d-12f9-7ad9-d44800bb817e}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ef469bd6-78dc-eeac-295f-919b64315e67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ef469bd6-78dc-eeac-295f-919b64315e67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8c3455a6-060e-1d6d-00d4-2f38dc0cf4d7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8c3455a6-060e-1d6d-00d4-2f38dc0cf4d7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{840ae3d0-4b44-ce2a-fa8a-ab1e8aa68444}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{840ae3d0-4b44-ce2a-fa8a-ab1e8aa68444}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{699a3049-b01a-3da6-b55b-2d7b998e1dd0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{699a3049-b01a-3da6-b55b-2d7b998e1dd0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1219557e-4cba-bd97-7a18-ef3a61bf7706}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1219557e-4cba-bd97-7a18-ef3a61bf7706}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{d59ca97a-e61e-832e-5919-bc76dd8d5143}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{d59ca97a-e61e-832e-5919-bc76dd8d5143}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9f1e5dcd-c4e9-8dea-f2f1-ff5585f56e12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9f1e5dcd-c4e9-8dea-f2f1-ff5585f56e12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{769abc42-0ac5-8982-9e71-1f710b67d575}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{769abc42-0ac5-8982-9e71-1f710b67d575}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

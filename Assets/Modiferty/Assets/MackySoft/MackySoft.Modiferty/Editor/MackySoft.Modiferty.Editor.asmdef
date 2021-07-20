@@ -1,0 +1,17 @@
+{
+    "name": "MackySoft.Modiferty.Editor",
+    "references": [
+        "GUID:e695879245fa2de4a81d0b0f517b15c3"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
